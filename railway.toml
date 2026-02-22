@@ -15,3 +15,10 @@ requiredMountPath = "/data"
 # can cause domain routing mismatches.
 OPENCLAW_STATE_DIR = "/data/.openclaw"
 OPENCLAW_WORKSPACE_DIR = "/data/workspace"
+
+# These unlock the "Elevated" gate
+OPENCLAW_TOOLS_ELEVATED_ENABLED = "true"
+OPENCLAW_TOOLS_ELEVATED_ALLOWFROM_WEBCHAT = '["*"]'
+
+# This allows gog to save your login tokens automatically
+GOG_KEYRING_PASSWORD = "pick-a-secure-password-here"
