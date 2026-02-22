@@ -54,7 +54,8 @@ RUN apt-get update \
 
 # `openclaw update` expects pnpm. Provide it in the runtime image.
 RUN corepack enable && corepack prepare pnpm@10.23.0 --activate
-RUN curl -L https://github.com/steipete/gogcli/releases/latest/download/gogcli_linux_amd64.tar.gz | tar -xz -C /usr/local/bin gog && chmod +x /usr/local/bin/gog
+RUN curl -L -o /usr/local/bin/gog https://github.com/steipete/gogcli/releases/latest/download/gog-linux-amd64 && \
+    chmod +x /usr/local/bin/gog
 
 # Persist user-installed tools by default by targeting the Railway volume.
 # - npm global installs -> /data/npm
