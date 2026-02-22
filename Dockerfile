@@ -49,10 +49,12 @@ RUN apt-get update \
     tini \
     python3 \
     python3-venv \
+    curl \
   && rm -rf /var/lib/apt/lists/*
 
 # `openclaw update` expects pnpm. Provide it in the runtime image.
 RUN corepack enable && corepack prepare pnpm@10.23.0 --activate
+RUN curl -L https://github.com/steipete/gogcli/releases/latest/download/gogcli_linux_amd64.tar.gz | tar -xz -C /usr/local/bin gog && chmod +x /usr/local/bin/gog
 
 # Persist user-installed tools by default by targeting the Railway volume.
 # - npm global installs -> /data/npm
